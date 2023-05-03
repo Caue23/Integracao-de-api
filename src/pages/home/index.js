@@ -35,7 +35,7 @@ export function HamburgerMenu() {
           <span></span>
           <span></span>
             </section>
-          <h1> Tarefas </h1>
+          <h1 id="tarefasHome"> Tarefas </h1>
         </label>
         <ul className="menu-items">
           <li><a href="#">Home</a></li>
