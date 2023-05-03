@@ -1,7 +1,7 @@
 import React, { useState,useEffect } from "react";
 import './home.css'
 import axios from "axios";
-import AddTask from "../../components/addTask";
+import { Navigate } from "react-router-dom";
 import ListaDeTarefas from "../../components/deleteTask";
 
 
@@ -10,6 +10,8 @@ export function HamburgerMenu() {
     const [menuOpen, setMenuOpen] = useState(false);
     const userData = JSON.parse(sessionStorage.getItem("userData"));
     const [title, setTitle] = useState("");
+    const [counter, setCounter] = useState(0);
+
 
     const handleSubmit = async (event) => {
       event.preventDefault();
@@ -19,6 +21,12 @@ export function HamburgerMenu() {
       });
       setTitle("");
     };
+
+    function singOut() {
+      sessionStorage.clear();
+      window.location.reload();
+      return <Navigate to="/"/>
+  }
 
     return (
         <div>
@@ -41,6 +49,7 @@ export function HamburgerMenu() {
           <li><a href="#">Home</a></li>
           <li>{userData.name}</li>
           <li>{userData.email}</li>
+        <button onClick={()=> singOut()}>Sair</button>
         </ul>
       </nav>
 <ListaDeTarefas/>
