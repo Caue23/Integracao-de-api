@@ -8,7 +8,6 @@ import { useNavigate } from 'react-router';
 export  function Logar() {
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
-  const [info, setInfo] = useState("");
   const navigate = useNavigate();
 
 
@@ -29,16 +28,10 @@ export  function Logar() {
             console.log(error);
           });
       }
-console.log(info)
-useEffect(() => {
 
-  if (info) {
-    
-  }
-}, []);
 
     return (
-<div className="container">
+<div className="containerLogin">
     <h1 id='login'>Login</h1>
 <form onSubmit={handleSubmit}>
     <div >

@@ -10,7 +10,6 @@ export function HamburgerMenu() {
     const [menuOpen, setMenuOpen] = useState(false);
     const userData = JSON.parse(sessionStorage.getItem("userData"));
     const [title, setTitle] = useState("");
-    const [counter, setCounter] = useState(0);
 
 
     const handleSubmit = async (event) => {
