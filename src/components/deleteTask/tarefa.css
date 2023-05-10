@@ -1,22 +1,41 @@
-[data-type="groupNormal"]{
+[data-type="groupNormal"] {
   list-style: none;
   padding: 0;
-  text-align: -webkit-center;
+  text-align: center;
 }
 
-  
-  #tarefas {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 10px;
-    width: 58%;
-  }
-  #minhasTarefas{
-    display: flex;
-    align-items: baseline;
-    justify-content: space-around;
-  }
+#tarefas {
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr auto 3fr;
+  margin-bottom: 10px;
+  width: 80%;
+  text-align: start;
+  padding: 0 8%;
+  color: white;
+  text-transform: capitalize;
+}
+
+.buttonDelete {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  justify-self: end;
+  width: 100%;
+  max-width: 125px;
+}
+#minhasTarefas {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between; /* Ajusta o espaçamento entre os itens */
+  flex-wrap: wrap; /* Permite que os itens sejam ajustados em várias linhas */
+  width: 82%;
+  padding: 0 5%;
+
+}
   
   #ButtonTarefas {
     background-color: #f44336;
@@ -26,6 +45,17 @@
     border-radius: 4px;
     cursor: pointer;
   }
+  .buttonAtualizar{
+    height: 35px;
+    width: 150px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
   
   #ButtonTarefas:hover {
     background-color: #e53935;
@@ -89,4 +119,23 @@
   .close:focus {
     color: black;
     text-decoration: none;
+  }
+
+
+  .task {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .task input {
+    margin-right: 10px;
+  }
+  
+  .task button {
+    background-color: #ff0000;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
   }

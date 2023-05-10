@@ -1,34 +1,42 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import './home.css'
-import axios from "axios";
 import { Navigate } from "react-router-dom";
 import ListaDeTarefas from "../../components/deleteTask";
+import CadastroUpdate from "../../components/update";
+import UpdatePassword from "../../components/updatePassword";
 
 
 
 export function HamburgerMenu() {
-    const [menuOpen, setMenuOpen] = useState(false);
-    const userData = JSON.parse(sessionStorage.getItem("userData"));
-    const [title, setTitle] = useState("");
+  const [menuOpen, setMenuOpen] = useState(false);
+  const userData = JSON.parse(sessionStorage.getItem("userData"));
+  const [showModal, setShowModal] = useState(false);
+  const [showModal2, setShowModal2] = useState(false);
 
-
-    const handleSubmit = async (event) => {
-      event.preventDefault();
-      await axios.post("https://todolist-api.edsonmelo.com.br/api/tasks", {
-        title,
-        completed: false
-      });
-      setTitle("");
-    };
-
-    function singOut() {
-      sessionStorage.clear();
-      window.location.reload();
-      return <Navigate to="/"/>
+  function openModal() {
+    setShowModal(true);
   }
 
-    return (
-        <div>
+  function closeModal() {
+    setShowModal(false);
+  }
+
+  function openModal2() {
+    setShowModal2(true);
+  }
+
+  function closeModal2() {
+    setShowModal2(false);
+  }
+
+  function singOut() {
+    sessionStorage.clear();
+    window.location.reload();
+    return <Navigate to="/" />
+  }
+
+  return (
+    <div>
       <nav className="hamburger-menu">
         <input
           id="menu-toggle"
@@ -37,21 +45,39 @@ export function HamburgerMenu() {
           onChange={() => setMenuOpen(!menuOpen)}
         />
         <label className="menu-btn" htmlFor="menu-toggle">
-            <section>
-          <span></span>
-          <span></span>
-          <span></span>
-            </section>
           <h1 id="tarefasHome"> Tarefas </h1>
+          <section className='dropdown'>
+            <a>
+              <img src='../../images/down.svg' />
+            </a>
+            <article className='menu'>
+              <button onClick={openModal}>Alterar senha e usuario</button>
+              {showModal ? (
+                <div className="modal">
+                  <div className="modal-content">
+                    <span className="close" onClick={closeModal}>&times;</span>
+                    <UpdatePassword />
+                  </div>
+                </div>
+              ) : null}
+              <button onClick={openModal2}>Alterar Nome e Email</button>
+              {showModal2 ? (
+                <div className="modal">
+                  <div className="modal-content">
+                    <span className="close" onClick={closeModal2}>&times;</span>
+                    <CadastroUpdate />
+                  </div>
+                </div>
+              ) : null}
+              <button onClick={() => singOut()}>Sair</button>
+            </article>
+          </section>
         </label>
-        <ul className="menu-items">
-          <li><a href="#">Home</a></li>
-          <li>{userData.name}</li>
-          <li>{userData.email}</li>
-        <button onClick={()=> singOut()}>Sair</button>
+        <ul >
+
         </ul>
       </nav>
-<ListaDeTarefas/>
-        </div>
-    );
-  }
+      <ListaDeTarefas />
+    </div>
+  );
+}

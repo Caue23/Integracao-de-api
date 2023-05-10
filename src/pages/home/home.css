@@ -9,7 +9,8 @@
     cursor: pointer;
     background-color: black;
     margin: 0;
-  }
+    justify-content: space-around;
+    }
   section{
     align-self: center;
     margin-left: 20px;
@@ -36,7 +37,8 @@
   /* Estilo da lista de itens de menu */
   .menu-items {
     display: none;
-    width: 200px;
+    position: absolute;
+    width: 300px;
     height: 550px;
     background: #333;
     list-style: none;
@@ -88,3 +90,73 @@
   .form-button:hover {
     background-color: #0062cc;
   }
+
+  .dropdown{
+    position: relative;
+    cursor: pointer;
+}
+.dropdown > a{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.dropdown > a > img{ 
+    width: 20px;
+    margin-right: 80px;
+}
+
+.dropdown:hover .menu{
+    opacity: 1;
+    visibility: visible;
+}
+
+.menu > a {
+    font-size: 14px;
+    padding:12px 20px;
+}
+.menu > button {
+    padding:12px 20px;
+}
+
+.menu > a:hover{
+    background: rgb(190, 187, 187);
+}
+.menu > button:hover{
+    background: rgb(190, 187, 187);
+}
+
+.menu{
+    position: absolute;
+    top:30px;
+    right: 59px;
+    display: grid;
+    width: 190px;
+    padding: 8px 0;
+    background: white;
+    border: 1px solid white;
+    border-radius:10px;
+    box-shadow: 0 40px 40px rgba(0 0 0 /6%);
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.25s;
+
+  }
+  button{
+      font-size: 14px;
+      background: var(--background);
+      border: 1px solid var(--background);
+      color: var(--gray-650);
+
+  }
+.menu::before{
+    content:"";
+    background:white;
+    border-top: 1px solid white;
+    border-right: 1px solid white;
+    margin-top:-15px;
+    margin-left: 153px;
+    width:12px;
+    height: 12px;
+    rotate:-45deg;
+
+}

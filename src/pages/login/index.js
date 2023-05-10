@@ -10,6 +10,10 @@ export  function Logar() {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
+  useEffect(() => {
+    sessionStorage.setItem('user', user);
+    sessionStorage.setItem('password', password);
+  }, [user, password]);
 
     function handleSubmit(event) {
         event.preventDefault();
