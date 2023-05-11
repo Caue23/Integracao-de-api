@@ -10,6 +10,7 @@
 h1 {
 	text-align: center;
 	margin-bottom: 20px;
+	color: #fff;
 }
 
 label {
@@ -39,4 +40,16 @@ button {
 
 button:hover {
 	background-color: #45a049;
+}
+
+.backButton{
+    text-decoration: none;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: normal;
+    color: #fdfafa;
+    cursor: pointer;
+}
+.backButton:hover{
+	color: rgb(190, 188, 188);
 }

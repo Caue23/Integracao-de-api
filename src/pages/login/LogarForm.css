@@ -10,11 +10,15 @@
 #login {
 	text-align: center;
 	margin-bottom: 20px;
+	color: #fff;
 }
 
 label {
 	display: block;
 	margin-bottom: 5px;
+}
+.form-label{
+	color: #fff;
 }
 
 input[type="text"],
@@ -27,7 +31,7 @@ input[type="password"] {
 	box-sizing: border-box;
 }
 
-button {
+.buttonLogin {
 	background-color: #4CAF50;
 	color: white;
 	padding: 10px 20px;
@@ -36,7 +40,7 @@ button {
 	cursor: pointer;
 }
 
-button:hover {
+.buttonLogin:hover {
 	background-color: #45a049;
 }
 
@@ -45,9 +49,5 @@ a{
     text-transform: uppercase;
     display: flex;
     justify-content: right;
-    color: black;
-}
-a:hover{
-    color: rgb(48, 46, 46);
-
+    color: #fff;
 }

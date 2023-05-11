@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 import './home.css'
 import { Navigate } from "react-router-dom";
 import ListaDeTarefas from "../../components/deleteTask";

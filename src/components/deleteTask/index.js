@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import "./tarefa.css";
 import axios from "axios";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function ListaDeTarefas() {
   const dataInfo = JSON.parse(sessionStorage.getItem("userData"));
@@ -94,10 +96,12 @@ export default function ListaDeTarefas() {
       .delete(url, { data: payload, headers: headers })
       .then((response) => {
         console.log(response.data);
+        toast.success('Tarefa excluída com sucesso!');
         // Realize as operações necessárias após a exclusão do item
       })
       .catch((error) => {
         console.log(error);
+        toast.error('Erro ao excluir tarefa. Por favor, tente novamente.');
       });
   }
 
@@ -119,13 +123,15 @@ export default function ListaDeTarefas() {
       if (response) {
         sessionStorage.setItem("search", JSON.stringify(response.data));
         setSearchData(response.data);
+        toast.success('Lista de tarefas atualizada com sucesso!');
       }
     } catch (error) {
       console.log(error);
+      toast.error('Erro ao atualizar a lista de tarefas. Por favor, tente novamente.');
     }
   };
 
-  const renderData = searchData && searchData.map(item => (
+  const renderData = searchData && searchData.length > 0 && searchData.map(item => (
     <div id="tarefas" key={item.id}>
       {item.name}
       <input
@@ -149,11 +155,13 @@ export default function ListaDeTarefas() {
           <li>{renderData}</li>
         </ul>
       </div>
+      <ToastContainer />
     </div>
   );
 }
 
-function FormularioDeTarefas() {
+
+function FormularioDeTarefas({ onAdicionarTarefa }) {
   const [textoDaTarefa, setTextoDaTarefa] = useState("");
   const [showModal, setShowModal] = useState(false);
   const dataInfo = JSON.parse(sessionStorage.getItem("userData"));
@@ -183,9 +191,13 @@ function FormularioDeTarefas() {
       )
       .then((response) => {
         console.log(response);
+        setTextoDaTarefa(""); // Limpar o campo de texto após adicionar a tarefa
+        onAdicionarTarefa(textoDaTarefa);
+        toast.success('Tarefa adicionada com sucesso!');
       })
       .catch((error) => {
         console.log(error);
+        toast.error('Erro ao adicionar tarefa. Por favor, tente novamente.');
       });
   };
 

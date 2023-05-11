@@ -1,12 +1,20 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./CadastroForm.css";
+import { useNavigate } from 'react-router';
+import { FaArrowLeft } from "react-icons/fa";
+
 
 export  function CadastroForm() {
   const [user, setUser] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
+  const navigate = useNavigate();
+
+  const handleBack = () => {
+    navigate('/');
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -28,6 +36,7 @@ export  function CadastroForm() {
 
   return (
     <div className="container">
+      <a className="backButton" onClick={handleBack}><FaArrowLeft/></a>
       <h1>Cadastro</h1>
     <form onSubmit={handleSubmit}>
       <div className="form-group">
