@@ -8,7 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 export function Logar() {
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
-  const [inputError, setInputError] = useState(false); // Novo estado para controle de erro
+  const [inputError, setInputError] = useState(false); 
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -23,9 +23,9 @@ export function Logar() {
 
   const handleLoginFailure = () => {
     toast.error('Falha no login. Verifique suas credenciais.');
-    setInputError(true); // Define o estado de erro como verdadeiro ao falhar o login
-    setUser(""); // Redefine o valor do estado "user" para uma string vazia
-    setPassword(""); // Redefine o valor do estado "password" para uma string vazia
+    setInputError(true); 
+    setUser(""); 
+    setPassword(""); 
   };
 
   function handleSubmit(event) {
@@ -60,7 +60,7 @@ export function Logar() {
           <input
             type="text"
             id="user"
-            className={`form-input ${inputError ? 'input-error' : ''}`} // Adiciona uma classe CSS para indicar erro
+            className={`form-input ${inputError ? 'input-error' : ''}`}
             value={user}
             onChange={(event) => setUser(event.target.value)}
           />

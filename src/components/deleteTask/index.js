@@ -73,7 +73,6 @@ export default function ListaDeTarefas() {
       }
     };
 
-    // Carregar dados inicialmente
     carregarInfo();
   }, []);
 
@@ -97,7 +96,6 @@ export default function ListaDeTarefas() {
       .then((response) => {
         console.log(response.data);
         toast.success('Tarefa excluída com sucesso!');
-        // Realize as operações necessárias após a exclusão do item
       })
       .catch((error) => {
         console.log(error);
@@ -147,7 +145,7 @@ export default function ListaDeTarefas() {
     <div>
       <section id="minhasTarefas">
         <h2>Minhas Tarefas</h2>
-        <button className="buttonAtualizar" onClick={handleUpdateData}>Atualizar Lista</button> {/* Botão para atualizar a API */}
+        <button className="buttonAtualizar" onClick={handleUpdateData}>Atualizar Lista</button> 
         <FormularioDeTarefas onAdicionarTarefa={adicionarTarefa} />
       </section>
       <div>
@@ -191,7 +189,7 @@ function FormularioDeTarefas({ onAdicionarTarefa }) {
       )
       .then((response) => {
         console.log(response);
-        setTextoDaTarefa(""); // Limpar o campo de texto após adicionar a tarefa
+        setTextoDaTarefa("");
         onAdicionarTarefa(textoDaTarefa);
         toast.success('Tarefa adicionada com sucesso!');
       })
