@@ -16,8 +16,12 @@
   text-transform: capitalize;
 }
 
+h2{
+  color: #fff;
+}
+
 .buttonDelete {
-  background-color: #f44336;
+  background-color: #e71b0c;
   color: white;
   border: none;
   padding: 8px 16px;
@@ -27,6 +31,11 @@
   width: 100%;
   max-width: 125px;
 }
+
+.buttonDelete:hover{
+  background-color: #f44336 ;
+}
+
 #minhasTarefas {
   display: flex;
   align-items: baseline;
